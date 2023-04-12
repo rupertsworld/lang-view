@@ -1,0 +1,14 @@
+{
+  "name": "@lang-view/web-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "node scripts/convert-spec.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

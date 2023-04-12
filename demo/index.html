@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <meta charset="utf-8" />
+    <title>LangView Web Component</title>
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <script type="module" src="./src/query.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <section class="header">
+        <input id="apikey" type="text" placeholder="OpenAI API key...">
+      </section>
+      <section class="view-section">
+        <lang-view />
+      </section>
+      <section class="query-section">
+        <demo-query></demo-query>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      const apiKeyElem = document.querySelector('#apikey');
+      const queryElem = document.querySelector('demo-query');
+      const viewElem = document.querySelector('lang-view');
+      queryElem.setAttribute('openai-api-key', apiKeyElem.value);
+
+      apiKeyElem.addEventListener('input', (e) => {
+        queryElem.setAttribute('openai-api-key', e.target.value);
+      });
+      
+      document.addEventListener('markup', (e) => {
+        console.log(e.detail) 
+        viewElem.markup = e.detail;
+      });
+    </script>
+  </body>
+</html>
